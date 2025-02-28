@@ -25,7 +25,7 @@ export default factories.createCoreService("api::game.game", () => ({
         .replace(/_/g, " ")
         .replace("#", " ") 
         : "BR0",
-    }
+    };
   },
 
   async populate() {
@@ -34,6 +34,8 @@ export default factories.createCoreService("api::game.game", () => ({
     const {
       data: { products },
     } = await axios.get(gogApiUrl);
+
+        // developers
 
     const developers = Array.isArray(products[2].developers) ? products[2].developers : [products[2].developers];
 
@@ -45,6 +47,8 @@ export default factories.createCoreService("api::game.game", () => ({
           },
         });
     });
+
+        // publishers
 
     const publishers = Array.isArray(products[2].publishers) ? products[2].publishers : [products[2].publishers];
     
