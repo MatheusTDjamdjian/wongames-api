@@ -12,6 +12,7 @@
     "strapi": "strapi"
   },
   "dependencies": {
+    "@apollo/client": "^3.13.9",
     "@ckeditor/strapi-plugin-ckeditor": "^1.1.0",
     "@strapi/plugin-cloud": "5.10.3",
     "@strapi/plugin-graphql": "^5.10.3",
@@ -19,6 +20,7 @@
     "@strapi/strapi": "^5.10.4",
     "better-sqlite3": "^11.10.0",
     "fs-extra": "^10.0.0",
+    "graphql": "^16.11.0",
     "jsdom": "^26.0.0",
     "mime-types": "^2.1.27",
     "pg": "8.8.0",

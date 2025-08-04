@@ -201,7 +201,7 @@ async function createGames(products) {
   );
 }
 
-export default factories.createCoreService(gameService, () => ({
+module.exports = factories.createCoreService(gameService, () => ({
   async populate(params) {
     try {
       const gogApiUrl = `https://catalog.gog.com/v1/catalog?${qs.stringify(
