@@ -4,9 +4,6 @@ export default {
       method: "POST",
       path: "/games/populate",
       handler: "game.populate",
-      config: {
-        middlewares: []
-      }
-    }
-  ]
+    },
+  ],
 };

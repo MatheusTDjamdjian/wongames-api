@@ -1,1 +1,7 @@
-export default () => ({});
+module.exports = {
+  upload: {
+    config: {
+      provider: 'local',
+    },
+  },
+};

@@ -1,3 +1,6 @@
+/**
+ * game service
+ */
 import axios from "axios";
 import { JSDOM } from "jsdom";
 import slugify from "slugify";
@@ -116,31 +119,28 @@ async function createManyToManyData(products) {
 }
 
 async function setImage({ image, game, field = "cover" }) {
-  const { data } = await axios.get(image, { responseType: "arraybuffer" });
-  const buffer = Buffer.from(data, "base64");
-
+  const axios = require("axios");
   const FormData = require("form-data");
 
-  const formData: any = new FormData();
-
-  formData.append("refId", game.id);
-  formData.append("ref", `${gameService}`);
-  formData.append("field", field);
-  formData.append("files", buffer, { filename: `${game.slug}.jpg` });
-
-  console.info(`Uploading ${field} image: ${game.slug}.jpg`);
-
   try {
-    await axios({
-      method: "POST",
-      url: `http://localhost:1337/api/upload/`,
-      data: formData,
-      headers: {
-        "Content-Type": `multipart/form-data; boundary=${formData._boundary}`,
-      },
+    const { data } = await axios.get(image, { responseType: "arraybuffer" });
+
+    const formData = new FormData();
+    formData.append("refId", game.id);
+    formData.append("ref", "api::game.game");
+    formData.append("field", field);
+    formData.append("files", data, {
+      filename: `${game.slug}.jpg`,
+      contentType: "image/jpeg"
+    });
+
+    console.info(`Uploading ${field} image: ${game.slug}.jpg`);
+
+    await axios.post("http://localhost:1337/api/upload", formData, {
+      headers: formData.getHeaders(),
     });
   } catch (error) {
-    console.log("setImage:", Exception(error));
+    console.error("Erro ao fazer upload da imagem:", error?.response?.data || error.message);
   }
 }
 
@@ -171,11 +171,11 @@ async function createGames(products) {
                 getByName(name, developerService)
               )
             ),
-            publisher: await Promise.all(
+            publisher: (await Promise.all(
               product.publishers.map((name) =>
                 getByName(name, publisherService)
               )
-            ),
+            ))[0],
             ...(await getGameInfo(product.slug)),
             publishedAt: new Date(),
           },
@@ -201,7 +201,7 @@ async function createGames(products) {
   );
 }
 
-module.exports = factories.createCoreService(gameService, () => ({
+export default factories.createCoreService(gameService, () => ({
   async populate(params) {
     try {
       const gogApiUrl = `https://catalog.gog.com/v1/catalog?${qs.stringify(

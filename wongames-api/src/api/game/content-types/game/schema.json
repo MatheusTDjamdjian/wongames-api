@@ -10,6 +10,7 @@
   "options": {
     "draftAndPublish": false
   },
+  "pluginOptions": {},
   "attributes": {
     "name": {
       "type": "string",
@@ -22,43 +23,36 @@
     "short_description": {
       "type": "text"
     },
+    "description": {
+      "type": "customField",
+      "options": {
+        "output": "HTML",
+        "preset": "rich"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
+    },
     "price": {
       "type": "decimal",
-      "required": true,
-      "default": 0
+      "required": true
     },
     "release_date": {
       "type": "date"
     },
     "rating": {
       "type": "enumeration",
-      "enum": [
-        "BR0",
-        "BR10",
-        "BR12",
-        "BR14",
-        "BR16",
-        "BR18"
-      ]
+      "enum": ["BR0", "BR10", "BR12", "BR14", "BR16", "BR18"]
     },
     "cover": {
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": [
-        "images"
-      ]
+      "allowedTypes": ["images"]
     },
     "gallery": {
       "type": "media",
       "multiple": true,
       "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
+      "allowedTypes": ["images", "files", "videos", "audios"]
     },
     "categories": {
       "type": "relation",
@@ -83,15 +77,6 @@
       "relation": "manyToOne",
       "target": "api::publisher.publisher",
       "inversedBy": "games"
-    },
-    "description": {
-      "type": "customField",
-      "options": {
-        "output": "HTML",
-        "preset": "rich",
-        "licenseKey": "eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzIzMjMxOTksImp0aSI6ImE5YzJhNGQwLTlkZjAtNGQ2ZS1iOWQxLTU5MDdmMTU4ZmM1MCIsInVzYWdlRW5kcG9pbnQiOiJodHRwczovL3Byb3h5LWV2ZW50LmNrZWRpdG9yLmNvbSIsImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiXSwiZmVhdHVyZXMiOlsiRFJVUCJdLCJ2YyI6Ijc3MDA1MTc3In0.nAzx60N8jIDBBQbqBx_ma5fBqo0dohjwofBLJxJ1XMgRxLnIAYSiGPZ2-4S-iJQyOOCn-iV_4D9jKfBWHNmJAw"
-      },
-      "customField": "plugin::ckeditor.CKEditor"
     }
   }
 }

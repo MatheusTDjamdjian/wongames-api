@@ -459,7 +459,6 @@ export interface ApiGameGame extends Struct.CollectionTypeSchema {
       Schema.Attribute.CustomField<
         'plugin::ckeditor.CKEditor',
         {
-          licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzIzMjMxOTksImp0aSI6ImE5YzJhNGQwLTlkZjAtNGQ2ZS1iOWQxLTU5MDdmMTU4ZmM1MCIsInVzYWdlRW5kcG9pbnQiOiJodHRwczovL3Byb3h5LWV2ZW50LmNrZWRpdG9yLmNvbSIsImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiXSwiZmVhdHVyZXMiOlsiRFJVUCJdLCJ2YyI6Ijc3MDA1MTc3In0.nAzx60N8jIDBBQbqBx_ma5fBqo0dohjwofBLJxJ1XMgRxLnIAYSiGPZ2-4S-iJQyOOCn-iV_4D9jKfBWHNmJAw';
           output: 'HTML';
           preset: 'rich';
         }
@@ -480,9 +479,7 @@ export interface ApiGameGame extends Struct.CollectionTypeSchema {
       'manyToMany',
       'api::platform.platform'
     >;
-    price: Schema.Attribute.Decimal &
-      Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<0>;
+    price: Schema.Attribute.Decimal & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     publisher: Schema.Attribute.Relation<
       'manyToOne',
