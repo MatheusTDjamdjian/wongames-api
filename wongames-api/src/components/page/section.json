@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_page_sections",
+  "info": {
+    "displayName": "section",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "highlight": {
+      "type": "component",
+      "component": "page.highlight",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

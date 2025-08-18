@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_page_popular_games",
+  "info": {
+    "displayName": "popularGames",
+    "icon": "hashtag"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "highlight": {
+      "type": "component",
+      "component": "page.highlight",
+      "repeatable": false
+    },
+    "game": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::game.game"
+    }
+  },
+  "config": {}
+}
