@@ -8,16 +8,16 @@
   "attributes": {
     "title": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "highlight": {
       "type": "component",
       "component": "page.highlight",
       "repeatable": false
     },
-    "game": {
+    "games": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::game.game"
     }
   },

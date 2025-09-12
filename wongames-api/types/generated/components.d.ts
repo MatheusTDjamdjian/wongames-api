@@ -39,9 +39,9 @@ export interface PagePopularGames extends Struct.ComponentSchema {
     icon: 'hashtag';
   };
   attributes: {
-    game: Schema.Attribute.Relation<'oneToOne', 'api::game.game'>;
+    games: Schema.Attribute.Relation<'oneToMany', 'api::game.game'>;
     highlight: Schema.Attribute.Component<'page.highlight', false>;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
+    title: Schema.Attribute.String;
   };
 }
 
