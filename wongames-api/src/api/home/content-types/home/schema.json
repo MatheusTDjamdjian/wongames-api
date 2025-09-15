@@ -16,6 +16,11 @@
       "component": "page.section",
       "repeatable": false
     },
+    "popularGames": {
+      "type": "component",
+      "component": "page.popular-games",
+      "repeatable": false
+    },
     "upcomingGames": {
       "type": "component",
       "component": "page.section",
@@ -24,11 +29,6 @@
     "freeGames": {
       "type": "component",
       "component": "page.section",
-      "repeatable": false
-    },
-    "popularGames": {
-      "type": "component",
-      "component": "page.popular-games",
       "repeatable": false
     }
   }
