@@ -41,7 +41,7 @@ export interface PagePopularGames extends Struct.ComponentSchema {
   attributes: {
     games: Schema.Attribute.Relation<'oneToMany', 'api::game.game'>;
     highlight: Schema.Attribute.Component<'page.highlight', false>;
-    title: Schema.Attribute.String;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
