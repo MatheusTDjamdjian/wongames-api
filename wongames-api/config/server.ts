@@ -1,3 +1,7 @@
+import dotenv from 'dotenv';
+
+dotenv.config();
+
 export default ({ env }) => {
   console.log('APP_KEYS array:', env.array('APP_KEYS'));
   return {
